@@ -21,9 +21,32 @@ main {
 /* Сетка галереи */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1.5rem;
+  margin-top: 1rem;
 }
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* можно заменить на 1/1 для квадратов */
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Дополнительно — при ширине экрана меньше 600px сделаем 1 колонку */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* Карточка художника */
 .card {
